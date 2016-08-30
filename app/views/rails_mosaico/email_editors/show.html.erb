@@ -24,22 +24,6 @@
   <%= javascript_include_tag "rails_mosaico/vendor/tinymce.min.js" %>
   <%= javascript_include_tag "rails_mosaico/mosaico.min.js" %>
 
-<!--     
-    <script src="dist/vendor/jquery.min.js"></script>
-    <script src="dist/vendor/knockout.js"></script>
-    <script src="dist/vendor/jquery-ui.min.js"></script>
-    <script src="dist/vendor/jquery.ui.touch-punch.min.js"></script>
-    <script src="dist/vendor/load-image.all.min.js"></script>
-    <script src="dist/vendor/canvas-to-blob.min.js"></script>
-    <script src="dist/vendor/jquery.iframe-transport.js"></script>
-    <script src="dist/vendor/jquery.fileupload.js"></script>
-    <script src="dist/vendor/jquery.fileupload-process.js"></script>
-    <script src="dist/vendor/jquery.fileupload-image.js"></script>
-    <script src="dist/vendor/jquery.fileupload-validate.js"></script>
-    <script src="dist/vendor/knockout-jqueryui.min.js"></script>
-    <script src="dist/vendor/tinymce.min.js"></script>
-    <script src="dist/mosaico.min.js?v=0.14"></script>
--->
     <script>
       $(function() {
         if (!Mosaico.isCompatible()) {
@@ -54,8 +38,6 @@
         // if (basePath.lastIndexOf('?') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('?'));
         // if (basePath.lastIndexOf('/') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('/'));
 
-
-        // var basePath = 'http://localhost:4001'
         var plugins;
         // A basic plugin that expose the "viewModel" object as a global variable.
         // plugins = [function(vm) {window.viewModel = vm;}];
@@ -63,13 +45,14 @@
           imgProcessorBackend: basePath+'/img/',
           emailProcessorBackend: basePath+'/dl/',
           titleToken: "MOSAICO Responsive Email Designer",
+          template: "versafix-1/template-versafix-1.html",
           fileuploadConfig: {
             url: basePath+'/upload/'
           }
         }, plugins);
         if (!ok) {
           console.log("Missing initialization hash, redirecting to main entrypoint");
-          // document.location = ".";
+          document.location = ".";
         }
       });
     </script>
