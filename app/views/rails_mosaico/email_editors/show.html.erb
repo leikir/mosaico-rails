@@ -9,6 +9,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
 
+  <%= javascript_include_tag "rails_mosaico/vendor/knockout.js" %>
   <%= javascript_include_tag "rails_mosaico/vendor/jquery.min.js" %>
   <%= javascript_include_tag "rails_mosaico/vendor/jquery-ui.min.js" %>
   <%= javascript_include_tag "rails_mosaico/vendor/jquery.ui.touch-punch.min.js" %>
@@ -21,7 +22,6 @@
   <%= javascript_include_tag "rails_mosaico/vendor/jquery.fileupload-process.js" %>
   <%= javascript_include_tag "rails_mosaico/vendor/knockout-jqueryui.min.js" %>
   <%= javascript_include_tag "rails_mosaico/vendor/tinymce.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/mosaico.min.js?v=0.14" %>
   <%= javascript_include_tag "rails_mosaico/mosaico.min.js" %>
 
 <!--     
@@ -41,41 +41,42 @@
     <script src="dist/mosaico.min.js?v=0.14"></script>
 -->
     <script>
-$(function() {
-  if (!Mosaico.isCompatible()) {
-    alert('Update your browser!');
-    return;
-  }
-  // var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/')).substr(window.location.href.indexOf('/','https://'.length));
-  
-  var basePath = window.location.href;
-  if (basePath.lastIndexOf('#') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('#'));
-  if (basePath.lastIndexOf('?') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('?'));
-  if (basePath.lastIndexOf('/') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('/'));
+      $(function() {
+        if (!Mosaico.isCompatible()) {
+          alert('Update your browser!');
+          return;
+        }
+        // var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/')).substr(window.location.href.indexOf('/','https://'.length));
+        var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/'));
+        
+        // var basePath = window.location.href;
+        // if (basePath.lastIndexOf('#') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('#'));
+        // if (basePath.lastIndexOf('?') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('?'));
+        // if (basePath.lastIndexOf('/') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('/'));
 
 
-  // var basePath = 'http://localhost:4001'
-  var plugins;
-  // A basic plugin that expose the "viewModel" object as a global variable.
-  // plugins = [function(vm) {window.viewModel = vm;}];
-  var ok = Mosaico.init({
-    imgProcessorBackend: basePath+'/img/',
-    emailProcessorBackend: basePath+'/dl/',
-    titleToken: "MOSAICO Responsive Email Designer",
-    fileuploadConfig: {
-      url: 'http://localhost:4001/upload/',
-      // messages??
-    }
-  }, plugins);
-  if (!ok) {
-    console.log("Missing initialization hash, redirecting to main entrypoint");
-    document.location = ".";
-  }
-});
+        // var basePath = 'http://localhost:4001'
+        var plugins;
+        // A basic plugin that expose the "viewModel" object as a global variable.
+        // plugins = [function(vm) {window.viewModel = vm;}];
+        var ok = Mosaico.init({
+          imgProcessorBackend: basePath+'/img/',
+          emailProcessorBackend: basePath+'/dl/',
+          titleToken: "MOSAICO Responsive Email Designer",
+          fileuploadConfig: {
+            url: basePath+'/upload/'
+          }
+        }, plugins);
+        if (!ok) {
+          console.log("Missing initialization hash, redirecting to main entrypoint");
+          // document.location = ".";
+        }
+      });
     </script>
     
     <%= stylesheet_link_tag    "rails_mosaico/mosaico-material.min.css?v=0.10", media: "all" %>
     <%= stylesheet_link_tag    "rails_mosaico/vendor/notoregular/stylesheet.css" %>
+    <!-- <%= stylesheet_link_tag    "rails_mosaico/vendor/evol.colorpicker.min.css" %> -->
 
   </head>
   <body class="mo-standalone">

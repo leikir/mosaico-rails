@@ -1,4 +1,4 @@
-require_dependency "blorgh/application_controller"
+# require_dependency "blorgh/application_controller"
 module RailsMosaico
   class GalleriesController < ApplicationController
     before_action :set_current_gallery
