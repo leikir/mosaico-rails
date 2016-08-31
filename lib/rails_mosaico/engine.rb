@@ -5,5 +5,8 @@ module RailsMosaico
     initializer "static assets" do |app|
       app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public")
     end
+    initializer "rails_mosaico.assets.precompile" do |app|
+      app.config.assets.precompile += %w(rails_mosaico/*)
+    end
   end
 end

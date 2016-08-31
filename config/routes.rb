@@ -1,7 +1,6 @@
 RailsMosaico::Engine.routes.draw do
-  resource :email_editor, only: :show
-  get '/editor', :to => redirect('mosaico/editor.html')
-
-  resources :galleries, only: :update
-  resources :images, only: :index
+  get   '/editor' => 'email_templates#show'
+  post  '/upload' => 'galleries#update'
+  get   '/upload' => 'images#index'
+  get   '/img'     => 'images#show'
 end
