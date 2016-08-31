@@ -3,7 +3,7 @@ module RailsMosaico
     belongs_to :gallery,
       foreign_key: :rails_mosaico_gallery_id
 
-    has_attached_file :image, styles: { thumbnail: '90x90#' }, default_url: "/images/:style/missing.png"
+    has_attached_file :image, styles: { thumbnail: '90x90' }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
     def as_json
