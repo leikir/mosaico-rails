@@ -18,7 +18,6 @@ class RailsMosaico::ImagesController < ActionController::Base
       image = RailsMosaico::Image.find_by(image_url: target_url)
       width, height = params[:params].gsub('null', '0').split(',')
       data = image.dynamic_attachment_url("#{width}x#{height}>")
-      binding.pry
       redirect_to data
     end
   end
