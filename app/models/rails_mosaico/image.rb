@@ -4,7 +4,7 @@ module RailsMosaico
       foreign_key: :rails_mosaico_gallery_id
 
     has_attached_file :image,
-      # styles: { thumbnail: '90x90'}, { Proc.new { |attachment| attachment.instance.styles }},
+      # styles: { thumbnail: '90x90'},
       default_url: "/images/:style/missing.png",
       styles: Proc.new { |attachment| attachment.instance.styles }
 
@@ -20,11 +20,10 @@ module RailsMosaico
     def styles
       unless @dynamic_style_format.blank?
         {
-          dynamic_style_format_symbol => @dynamic_style_format,
-          thumbnail: '90x90>'
+          dynamic_style_format_symbol => @dynamic_style_format
         }
       else
-        {}
+        { thumbnail: '90x90>' }
       end
     end
 
@@ -46,7 +45,7 @@ module RailsMosaico
     end
 
     def set_image_url
-      self.update(image_url: self.image.url)
+      self.update(image_url: self.image.url.split('?')[0])
     end
   end
 end
