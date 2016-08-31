@@ -51,6 +51,34 @@ $(function init() {
   // }
 ];
 
+  Mosaico.init = function(options, customExtensions) {
+
+    // Hash usage has been commented because we don't need it right now
+
+    //var hash = global.location.hash ? global.location.href.split("#")[1] : undefined;
+
+    // Loading from configured template or configured metadata
+    if (options && (options.template || options.data)) {
+      if (options.data) {
+        var data = JSON.parse(options.data);
+        Mosaico.start(options, undefined, JSON.parse(data.metadata), JSON.parse(data.content), customExtensions);
+      } else {
+        Mosaico.start(options, options.template, undefined, undefined, customExtensions);
+      }
+    }
+      // Loading from LocalStorage (if url hash has a 7chars key)
+    // } else if (hash && hash.length == 7) {
+    //   initFromLocalStorage(options, hash, customExtensions);
+    //   // Loading from template url as hash (if hash is not a valid localstorage key)
+    // } else if (hash) {
+    //   start(options, _canonicalize(hash), undefined, undefined, customExtensions);
+    // }
+    else {
+      return false;
+    }
+    return true;
+  }
+
   var ok = Mosaico.init({
     //strings: strings,
     imgProcessorBackend: basePath+'/img/',
