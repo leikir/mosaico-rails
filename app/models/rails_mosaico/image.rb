@@ -36,11 +36,11 @@ module RailsMosaico
     def as_json
       {
         deleteType: 'DELETE',
-        deleteUrl: "#{ENV['URL_BASE']}delete/#{self.id}",
+        deleteUrl: "#{ENV['SERVER_URL']}delete/#{self.id}",
         name: self.image_file_name,
         size: self.image_file_size,
-        thumbnailUrl: "#{ENV['URL_BASE']}#{self.image.url(:thumbnail)}",
-        url: "#{ENV['URL_BASE']}#{self.image.url}"
+        thumbnailUrl: "#{ENV['SERVER_URL']}#{self.image.url(:thumbnail)}",
+        url: "#{ENV['SERVER_URL']}#{self.image.url}"
       }
     end
 
