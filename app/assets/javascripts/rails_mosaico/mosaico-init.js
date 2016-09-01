@@ -1,14 +1,39 @@
 var lang = 'en';
+var metadatas;
+var content;
+var initFromTpl = false;
+var tplReceived = false;
+var initReceived = false;
 
 var rcvmessage = function(evt) {
-  if (evt.origin !== 'http://localhost:3001') {
-    return;
+  if (JSON.parse(evt.data).type === 'init') {
+    lang = JSON.parse(evt.data).lang;
+    initFromTpl = JSON.parse(evt.data).fromTpl;
+    initReceived = true;
   }
-  if (JSON.parse(evt.data).type !== 'lang') {
-    return;
+  else if (JSON.parse(evt.data).type === 'savedTpl' && initFromTpl === true) {
+    metadatas = JSON.parse(evt.data).datas.metadatas;
+    content = JSON.parse(evt.data).datas.content;
+    tplReceived = true;
   }
-  lang = JSON.parse(evt.data).lang;
-  init();
+  else if (JSON.parse(evt.data).type === 'css') {
+    var elems = JSON.parse(evt.data).elems;
+    var style = JSON.parse(evt.data).style;
+
+    for (var i = 0; i < elems.length; i++) {
+      $(elems[i]).css(style[i]);
+    }
+  }
+
+  if (JSON.parse(evt.data).type === 'init' || JSON.parse(evt.data).type === 'savedTpl') {
+    if ((initFromTpl === true && tplReceived === true && !(metadatas && content)) || initReceived === false) {
+      console.warn('You did not sent metadatas and content as expected');
+      return;
+    }
+    else if (((initFromTpl === true && tplReceived === true) || (initFromTpl === false)) && initReceived === true) {
+      init();
+    }
+  }
 };
 
 if (window.addEventListener) {
@@ -84,10 +109,10 @@ function init() {
     imgProcessorBackend: basePath+'/img/',
     emailProcessorBackend: basePath+'/dl/',
     titleToken: "MOSAICO Responsive Email Designer",
-    // data: JSON.stringify({
-    //   metadata: window.localStorage['metadata-ubqg77j'],
-    //   content: window.localStorage['template-ubqg77j']
-    // }),
+    data: JSON.stringify({
+      metadata: metadatas,
+      content: content
+    }),
     template: "/versafix-1/template-versafix-1.html",
     fileuploadConfig: {
       url: basePath+'/upload/',
