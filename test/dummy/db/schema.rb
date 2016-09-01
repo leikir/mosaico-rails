@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830095013) do
+ActiveRecord::Schema.define(version: 20160901095920) do
 
   create_table "rails_mosaico_galleries", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "rails_mosaico_imageable_id"
+    t.string   "rails_mosaico_imageable_type"
+    t.index ["rails_mosaico_imageable_type", "rails_mosaico_imageable_id"], name: "rails_mosaico_gallery_poly_association"
   end
 
   create_table "rails_mosaico_images", force: :cascade do |t|
@@ -26,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160830095013) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "image_url"
     t.index ["gallery_id"], name: "index_rails_mosaico_images_on_gallery_id"
   end
 
