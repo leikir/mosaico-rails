@@ -8,21 +8,8 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
+  <%= javascript_include_tag "rails_mosaico/application" %>
 
-  <%= javascript_include_tag "rails_mosaico/vendor/knockout.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery-ui.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.ui.touch-punch.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/load-image.all.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/canvas-to-blob.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.iframe-transport.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.fileupload.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.fileupload-process.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.fileupload-image.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/jquery.fileupload-process.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/knockout-jqueryui.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/vendor/tinymce.min.js" %>
-  <%= javascript_include_tag "rails_mosaico/mosaico.min.js" %>
 
     <script>
       $(function() {
@@ -59,6 +46,7 @@
 
     <%= stylesheet_link_tag    "rails_mosaico/mosaico-material.min.css?v=0.10", media: "all" %>
     <%= stylesheet_link_tag    "rails_mosaico/vendor/notoregular/stylesheet.css" %>
+
     <!-- <%= stylesheet_link_tag    "rails_mosaico/vendor/evol.colorpicker.min.css" %> -->
 
   </head>
