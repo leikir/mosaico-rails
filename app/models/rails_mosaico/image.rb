@@ -4,7 +4,6 @@ module RailsMosaico
       foreign_key: :rails_mosaico_gallery_id
 
     has_attached_file :image,
-      # styles: { thumbnail: '90x90'},
       default_url: "/images/:style/missing.png",
       styles: Proc.new { |attachment| attachment.instance.styles }
 
@@ -14,7 +13,7 @@ module RailsMosaico
 
 
     def dynamic_style_format_symbol
-      URI.escape(@dynamic_style_format.gsub('>', '')).to_sym
+      CGI::escape(@dynamic_style_format).to_sym
     end
 
     def styles
