@@ -1,9 +1,30 @@
 (function() {
-
-  var locale = 'en';
-  var metadatas;
-  var content;
   var strings;
+
+  // var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/')).substr(window.location.href.indexOf('/','https://'.length));
+  var basePath = window.location.href;
+  if (basePath.lastIndexOf('/') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('/'));
+
+  var plugins;
+  // A basic plugin that expose the "viewModel" object as a global variable.
+
+
+  plugins = [
+    function(vm) {
+      window.viewModel = vm;
+    },
+    function(vm) {
+      if (strings) {
+        vm.ut = function(key, objParam) {
+          var res = strings[objParam]
+          if (typeof res == 'undefined') {
+            res = objParam;
+          }
+          return res;
+        }
+      }
+    }
+  ];
 
   var initOptions = {
     imgProcessorBackend: basePath+'/img/',
@@ -18,19 +39,21 @@
 
   var rcvmessage = function(evt) {
 
+
     var data = JSON.parse(evt.data);
 
     switch (data.action) {
       case 'init':
-        locale = data.locale;
-        if (data.metadatas && data.content) {
+        if (data.locale) {
+          strings = $.ajax('rails_mosaico/lang/mosaico-' + data.locale + '.json', {type: 'GET', async: false}).responseText;
+          initOptions.strings = $.parseJSON(strings);
+        }
+        if (data.metadata && data.content) {
           initOptions['data'] = JSON.stringify({
             metadata: JSON.parse(data.metadata),
             content: JSON.parse(data.content)
           });
         }
-        strings = $.ajax('rails_mosaico/lang/mosaico-' + locale + '.json', {type: 'GET', async: false}).responseText;
-        initOptions.strings = $.parseJSON(strings);
         init();
         break;
       case 'loadContent':
@@ -48,6 +71,14 @@
           $(elems[i]).css(style[i]);
         }
         break;
+      case 'exportReq':
+        top.postMessage(JSON.stringify({
+          type: 'exportHTML',
+          htmlContent: window.viewModel.exportHTML(),
+          jsonContent: window.viewModel.exportJSON(),
+          jsonMetadata: window.viewModel.exportMetadata()
+        }), '*');
+        break;
       default:
         console.info(data.action + ' is not recognized as an action');
     }
@@ -64,31 +95,7 @@
       alert('Update your browser!');
       return;
     }
-    // var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/')).substr(window.location.href.indexOf('/','https://'.length));
-    var basePath = window.location.href;
-    if (basePath.lastIndexOf('/') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('/'));
 
-    var plugins;
-    // A basic plugin that expose the "viewModel" object as a global variable.
-
-
-    plugins = [
-      function(vm) {
-        window.viewModel = vm;
-      },
-      function(vm) {
-        if (strings) {
-          vm.ut = function(key, objParam) {
-            var res = strings[objParam]
-            if (typeof res == 'undefined') {
-              res = objParam;
-            }
-            return res;
-          }
-        }
-      }
-    ];
-
-    Mosaico.init(initOptions, plugins);
+    Mosaico.init(initOptions);
   }
 })()
