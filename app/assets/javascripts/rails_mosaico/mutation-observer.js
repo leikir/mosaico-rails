@@ -8,6 +8,7 @@ var observer = new MutationObserver(function(mutations, observer) {
   if (templateLoaded === false && mutations.length > 1) {
     templateLoaded = true;
     toObserve = document.getElementById('main-wysiwyg-area');
+    console.log(window.viewModel.exportHTML());
     top.postMessage(window.viewModel.exportHTML(), '*');
   }
   // if (templateLoaded === true) {
