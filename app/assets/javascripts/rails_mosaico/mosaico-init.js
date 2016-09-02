@@ -96,6 +96,6 @@
       return;
     }
 
-    Mosaico.init(initOptions);
+    Mosaico.init(initOptions, plugins);
   }
 })()
