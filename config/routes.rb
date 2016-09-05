@@ -1,4 +1,4 @@
-RailsMosaico::Engine.routes.draw do
+MosaicoRails::Engine.routes.draw do
   get   '/editor' => 'email_templates#editor',      as: :mosaico_editor
   post  '/upload' => 'galleries#update',            as: :mosaico_upload
   get   '/upload' => 'images#index'

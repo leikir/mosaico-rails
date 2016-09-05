@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module RailsMosaico
+module MosaicoRails
   class ImageTest < ActiveSupport::TestCase
     # test "the truth" do
     #   assert true

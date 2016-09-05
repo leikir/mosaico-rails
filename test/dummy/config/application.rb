@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "rails_mosaico"
+require "mosaico_rails"
 
 module Dummy
   class Application < Rails::Application

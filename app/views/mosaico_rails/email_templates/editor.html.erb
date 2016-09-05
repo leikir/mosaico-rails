@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=1024, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-    <%= stylesheet_link_tag "rails_mosaico/editor.css" %>
+    <%= stylesheet_link_tag "mosaico_rails/editor.css" %>
   </head>
   <body class="mo-standalone">
 
-    <%= javascript_include_tag "rails_mosaico/editor.js" %>
+    <%= javascript_include_tag "mosaico_rails/editor.js" %>
 
     <%= javascript_tag do %>
 
       window.mosaicoOptions = {
-        imgProcessorBackend: '<%= RailsMosaico::Engine.routes.url_helpers.mosaico_image_path %>',
+        imgProcessorBackend: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_image_path %>',
         titleToken: "MOSAICO Responsive Email Designer",
-        template: '<%= RailsMosaico::Engine.routes.url_helpers.mosaico_template_path('versafix-1') %>',
+        template: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_template_path('versafix-1') %>',
         fileuploadConfig: {
-          url: '<%= RailsMosaico::Engine.routes.url_helpers.mosaico_upload_path %>'
+          url: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_upload_path %>'
         }
       };
 
-      window.templatePath = <%= Hash[Dir.entries(RailsMosaico::Engine.root.join('vendor/assets/mosaico/mosaico/templates/versafix-1/edres')).map do |fileName|
+      window.templatePath = <%= Hash[Dir.entries(MosaicoRails::Engine.root.join('vendor/assets/mosaico/mosaico/templates/versafix-1/edres')).map do |fileName|
           if fileName.ends_with?('.png')
             ["edres/#{fileName}", ActionController::Base.helpers.image_path("mosaico/templates/versafix-1/edres/#{fileName}")]
           end
@@ -41,7 +41,7 @@
     <%= yield :mosaico_before_init %>
 
     <%= javascript_tag do %>
-      <% if RailsMosaico.auto_init %>
+      <% if MosaicoRails.auto_init %>
         Mosaico.init(window.mosaicoOptions, window.mosaicoPlugins);
       <% end %>
     <% end %>

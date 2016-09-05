@@ -12,16 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20160901095920) do
 
-  create_table "rails_mosaico_galleries", force: :cascade do |t|
+  create_table "mosaico_rails_galleries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "rails_mosaico_imageable_id"
-    t.string   "rails_mosaico_imageable_type"
-    t.index ["rails_mosaico_imageable_type", "rails_mosaico_imageable_id"], name: "rails_mosaico_gallery_poly_association"
+    t.integer  "mosaico_rails_imageable_id"
+    t.string   "mosaico_rails_imageable_type"
+    t.index ["mosaico_rails_imageable_type", "mosaico_rails_imageable_id"], name: "mosaico_rails_gallery_poly_association"
   end
 
-  create_table "rails_mosaico_images", force: :cascade do |t|
+  create_table "mosaico_rails_images", force: :cascade do |t|
     t.integer  "gallery_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160901095920) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_url"
-    t.index ["gallery_id"], name: "index_rails_mosaico_images_on_gallery_id"
+    t.index ["gallery_id"], name: "index_mosaico_rails_images_on_gallery_id"
   end
 
 end

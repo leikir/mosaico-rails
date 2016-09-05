@@ -1,8 +1,8 @@
 class CreateTable<%= image_class.classify.pluralize %> < ActiveRecord::Migration
   def change
-    create_table(:rails_mosaico_<%= image_class.pluralize.underscore %>) do |t|
+    create_table(:mosaico_rails_<%= image_class.pluralize.underscore %>) do |t|
       t.integer  "<%= "#{image_class}_id" %>"
-      t.integer  "<%= "rails_mosaico_#{gallery_class}_id" %>"
+      t.integer  "<%= "mosaico_rails_#{gallery_class}_id" %>"
       t.datetime "created_at",         null: false
       t.datetime "updated_at",         null: false
       t.string   "image_file_name"

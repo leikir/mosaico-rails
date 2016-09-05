@@ -1,6 +1,6 @@
 class CreateTable<%= gallery_class.classify.pluralize %> < ActiveRecord::Migration
   def change
-    create_table(:rails_mosaico_<%= gallery_class.pluralize.underscore %>) do |t|
+    create_table(:mosaico_rails_<%= gallery_class.pluralize.underscore %>) do |t|
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
     end

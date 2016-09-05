@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class RailsMosaico::Test < ActiveSupport::TestCase
+class MosaicoRails::Test < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, RailsMosaico
+    assert_kind_of Module, MosaicoRails
   end
 end

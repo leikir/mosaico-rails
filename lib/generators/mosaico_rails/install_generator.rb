@@ -1,8 +1,8 @@
-module RailsMosaico
+module MosaicoRails
   class InstallGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
 
-    argument :owner_class, :type => :string, :default => "user"
+    argument :owner_class, :type => :string#, :default => "user"
     argument :gallery_class, :type => :string, :default => "gallery"
     argument :image_class, :type => :string, :default => "image"
 
@@ -10,8 +10,7 @@ module RailsMosaico
 
     def create_initializer_file
       copy_file("paperclip.rb", "config/initializers/paperclip.rb")
-      create_file("config/initializers/rails_mosaico.rb", "RailsMosaico.owner_class = '#{owner_class.classify}'\nauto_init: true")
-
+      create_file("config/initializers/mosaico-rails.rb", "MosaicoRails.owner_class = '#{owner_class.classify}'\n# MosaicoRails.auto_init: true")
     end
 
     def create_active_record_db
@@ -30,11 +29,11 @@ module RailsMosaico
       else
         fname = "app/models/#{owner_class.underscore}.rb"
         if File.exist?(File.join(destination_root, fname))
-          inclusion = "has_one :rails_mosaico_gallery, as: :rails_mosaico_imageable, class_name: 'RailsMosaico::Gallery'"
+          inclusion = "has_one :mosaico_rails_gallery, as: :mosaico_rails_imageable, class_name: 'MosaicoRails::Gallery'"
           unless parse_file_for_line(fname, inclusion)
             active_record_needle = (Rails::VERSION::MAJOR == 5) ? 'ApplicationRecord' : 'ActiveRecord::Base'
             inject_into_file fname, after: "class #{owner_class} < #{active_record_needle}\n" do <<-'RUBY'
-  has_one :rails_mosaico_gallery, as: :rails_mosaico_imageable, class_name: 'RailsMosaico::Gallery'
+  has_one :mosaico_rails_gallery, as: :mosaico_rails_imageable, class_name: 'MosaicoRails::Gallery'
   RUBY
             end
           end
@@ -45,7 +44,7 @@ module RailsMosaico
     def create_routes
       fname = 'config/routes.rb'
       inject_into_file fname, after: "Rails.application.routes.draw do\n" do <<-'RUBY'
-  mount RailsMosaico::Engine, at: '/'
+  mount MosaicoRails::Engine, at: '/'
   RUBY
       end
     end

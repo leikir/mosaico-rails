@@ -1,7 +1,7 @@
-module RailsMosaico
+module MosaicoRails
   class Image < ApplicationRecord
     belongs_to :gallery,
-      foreign_key: :rails_mosaico_gallery_id
+      foreign_key: :mosaico_rails_gallery_id
 
     has_attached_file :image,
       default_url: "/images/:style/missing.png",

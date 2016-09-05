@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_mosaico (0.1.0)
+    mosaico-rails (0.1.0)
       paperclip
 
 GEM
@@ -40,7 +40,7 @@ PLATFORMS
 
 DEPENDENCIES
   paperclip
-  rails_mosaico!
+  mosaico_rails!
 
 BUNDLED WITH
    1.12.5

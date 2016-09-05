@@ -1,4 +1,4 @@
-class RailsMosaico::GalleriesController < ActionController::Base
+class MosaicoRails::GalleriesController < ActionController::Base
   before_action :set_current_gallery
 
   def update
@@ -9,7 +9,7 @@ class RailsMosaico::GalleriesController < ActionController::Base
   private
 
   def set_current_gallery
-    @gallery = RailsMosaico::Gallery.first_or_create
+    @gallery = MosaicoRails::Gallery.first_or_create
   end
   def image_params
     params.require(:files)[0]

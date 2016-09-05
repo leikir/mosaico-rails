@@ -1,6 +1,6 @@
-class CreateRailsMosaicoGalleries < ActiveRecord::Migration[5.0]
+class CreateMosaicoRailsGalleries < ActiveRecord::Migration[5.0]
   def change
-    create_table :rails_mosaico_galleries do |t|
+    create_table :mosaico_rails_galleries do |t|
       t.timestamps
     end
   end

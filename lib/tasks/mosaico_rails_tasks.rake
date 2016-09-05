@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :rails_mosaico do
+# task :mosaico_rails do
 #   # Task goes here
 # end

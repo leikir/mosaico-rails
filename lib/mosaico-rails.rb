@@ -1,7 +1,7 @@
-require "rails_mosaico/engine"
+require "mosaico_rails/engine"
 require "tinymce-rails"
 
-module RailsMosaico
+module MosaicoRails
   mattr_accessor :owner_class
   mattr_accessor :auto_init
 
