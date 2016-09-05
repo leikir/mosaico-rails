@@ -41,7 +41,7 @@
     <%= yield :mosaico_before_init %>
 
     <%= javascript_tag do %>
-      <% if !content_for?(:mosaico_before_init) %>
+      <% if RailsMosaico.auto_init %>
         Mosaico.init(window.mosaicoOptions, window.mosaicoPlugins);
       <% end %>
     <% end %>
