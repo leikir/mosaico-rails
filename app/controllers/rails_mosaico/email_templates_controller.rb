@@ -1,10 +1,23 @@
 class RailsMosaico::EmailTemplatesController < ActionController::Base
-  def show
+
+  def editor
   end
 
-  def versafix
-  	original_template = Rails.application.assets.find_asset('rails_mosaico/versafix-1/template-versafix-1.html').to_s
-  	new_template = ERB.new original_template.gsub(/<img src="img\/social_def\/(.*\.png|jpg|jpeg|tiff)*.+\/>/, '<%=  ActionController::Base.helpers.image_tag("rails_mosaico/versafix/img/social_def/\1", class:"socialIcon") %>')
-    render html: new_template.result.html_safe
+  def show
+    template_id = params[:id]
+  	original_template = File.open(
+      File.join(
+        File.dirname(__FILE__),
+        "../../../vendor/assets/mosaico/mosaico/templates/#{template_id}/template-#{template_id}.html"
+      )
+    ).read
+  	new_template = original_template.gsub(
+      /src="img\/(.*\.(png|jpg|jpeg|gif))"/
+    ) { |match|
+      image_name = "mosaico/templates/#{template_id}/img/#{$1}"
+      "src=\"#{ActionController::Base.helpers.image_path(image_name)}\""
+    }
+    render html: new_template.html_safe
   end
+
 end

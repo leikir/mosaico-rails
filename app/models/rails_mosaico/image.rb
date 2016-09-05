@@ -32,14 +32,15 @@ module RailsMosaico
       image.url(dynamic_style_format_symbol)
     end
 
-    def as_json
+    def as_json(options = {})
+      hostname = options[:host]
       {
         deleteType: 'DELETE',
-        deleteUrl: "#{ENV['SERVER_URL']}delete/#{self.id}",
+        deleteUrl: "#{hostname}delete/#{self.id}",
         name: self.image_file_name,
         size: self.image_file_size,
-        thumbnailUrl: "#{ENV['SERVER_URL']}#{self.image.url(:thumbnail)}",
-        url: "#{ENV['SERVER_URL']}#{self.image.url}"
+        thumbnailUrl: "#{hostname}#{self.image.url(:thumbnail)}",
+        url: "#{hostname}#{self.image.url}"
       }
     end
 

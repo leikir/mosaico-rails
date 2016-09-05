@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=1024, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <%= stylesheet_link_tag "rails_mosaico/editor.css" %>
+  </head>
+  <body class="mo-standalone">
+
+    <%= javascript_include_tag "rails_mosaico/editor.js" %>
+
+    <%= javascript_tag do %>
+
+      window.mosaicoOptions = {
+        imgProcessorBackend: '<%= mosaico_image_path %>',
+        titleToken: "MOSAICO Responsive Email Designer",
+        template: '<%= mosaico_template_path('versafix-1') %>',
+        fileuploadConfig: {
+          url: '<%= mosaico_upload_path %>'
+        }
+      };
+
+      window.templatePath = <%= Hash[Dir.entries(RailsMosaico::Engine.root.join('vendor/assets/mosaico/mosaico/templates/versafix-1/edres')).map do |fileName|
+          if fileName.ends_with?('.png')
+            ["edres/#{fileName}", image_path("mosaico/templates/versafix-1/edres/#{fileName}")]
+          end
+        end].to_json.html_safe %>;
+      window.mosaicoPlugins = [
+        function(viewModel) {
+
+          viewModel.templatePath = function(name) {
+            return window.templatePath[name];
+          };
+          viewModel.logoPath = '<%= asset_path('mosaico/dist/img/mosaico32.png') %>';
+        }
+      ];
+
+      <% if true %>
+        Mosaico.init(window.mosaicoOptions, window.mosaicoPlugins);
+      <% end %>
+    <% end %>
+
+  </body>
+</html>

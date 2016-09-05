@@ -1,0 +1,16 @@
+//= require 'mosaico/dist/vendor/knockout.js'
+//= require 'mosaico/dist/vendor/jquery.min.js'
+//= require 'mosaico/dist/vendor/jquery-ui.min.js'
+//= require 'mosaico/dist/vendor/jquery.ui.touch-punch.min.js'
+//= require 'mosaico/dist/vendor/load-image.all.min.js'
+//= require 'mosaico/dist/vendor/canvas-to-blob.min.js'
+//= require 'mosaico/dist/vendor/jquery.iframe-transport.js'
+//= require 'mosaico/dist/vendor/jquery.fileupload.js'
+//= require 'mosaico/dist/vendor/jquery.fileupload-process.js'
+//= require 'mosaico/dist/vendor/jquery.fileupload-image.js'
+//= require 'mosaico/dist/vendor/jquery.fileupload-process.js'
+//= require 'mosaico/dist/vendor/knockout-jqueryui.min.js'
+
+//= require 'tinymce.js'
+
+//= require 'mosaico/dist/mosaico.min.js'

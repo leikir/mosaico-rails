@@ -2,11 +2,17 @@ module RailsMosaico
   class Engine < ::Rails::Engine
     isolate_namespace RailsMosaico
 
-    # initializer "static assets" do |app|
-    #   app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public")
-    # end
     initializer "rails_mosaico.assets.precompile" do |app|
-      app.config.assets.precompile += %w(rails_mosaico/* *.png *.jpg *.jpeg)
+      app.config.tinymce.install = :compile
+      app.config.assets.paths << RailsMosaico::Engine.root.join("vendor", "assets", "mosaico")
+      app.config.assets.precompile += %w(
+        rails_mosaico/editor.css
+        rails_mosaico/editor.js
+        mosaico/**/*.png
+        mosaico/**/*.jpg
+        mosaico/**/*.jpeg
+        mosaico/**/*.gif
+      )
     end
   end
 end
