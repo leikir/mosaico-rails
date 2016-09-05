@@ -27,7 +27,17 @@
 
         var plugins;
         // A basic plugin that expose the "viewModel" object as a global variable.
-        // plugins = [function(vm) {window.viewModel = vm;}];
+        plugins = [
+          function(vm) {
+            window.viewModel = vm;
+          },
+          function(vm) {
+            vm.templatePath = function(name){
+              console.log('templatePath', name);
+              return 'assets/rails_mosaico/'+name;
+            }
+          }
+        ];
         var ok = Mosaico.init({
           imgProcessorBackend: basePath+'/img/',
           emailProcessorBackend: basePath+'/dl/',
