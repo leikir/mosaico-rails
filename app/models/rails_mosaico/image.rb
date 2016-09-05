@@ -4,7 +4,6 @@ module RailsMosaico
       foreign_key: :rails_mosaico_gallery_id
 
     has_attached_file :image,
-      # styles: { thumbnail: '90x90'}, { Proc.new { |attachment| attachment.instance.styles }},
       default_url: "/images/:style/missing.png",
       styles: Proc.new { |attachment| attachment.instance.styles }
 
@@ -14,17 +13,16 @@ module RailsMosaico
 
 
     def dynamic_style_format_symbol
-      URI.escape(@dynamic_style_format.gsub('>', '')).to_sym
+      CGI::escape(@dynamic_style_format).to_sym
     end
 
     def styles
       unless @dynamic_style_format.blank?
         {
-          dynamic_style_format_symbol => @dynamic_style_format,
-          thumbnail: '90x90>'
+          dynamic_style_format_symbol => @dynamic_style_format
         }
       else
-        {}
+        { thumbnail: '90x90>' }
       end
     end
 
@@ -37,16 +35,16 @@ module RailsMosaico
     def as_json
       {
         deleteType: 'DELETE',
-        deleteUrl: "#{ENV['URL_BASE']}delete/#{self.id}",
+        deleteUrl: "#{ENV['SERVER_URL']}delete/#{self.id}",
         name: self.image_file_name,
         size: self.image_file_size,
-        thumbnailUrl: "#{ENV['URL_BASE']}#{self.image.url(:thumbnail)}",
-        url: "#{ENV['URL_BASE']}#{self.image.url}"
+        thumbnailUrl: "#{ENV['SERVER_URL']}#{self.image.url(:thumbnail)}",
+        url: "#{ENV['SERVER_URL']}#{self.image.url}"
       }
     end
 
     def set_image_url
-      self.update(image_url: self.image.url)
+      self.update(image_url: self.image.url.split('?')[0])
     end
   end
 end
