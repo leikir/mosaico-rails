@@ -26,10 +26,8 @@ module MosaicoRails
       migration_template 'create_table_image.rb.erb', "db/migrate/create_table_#{image_class.pluralize}.rb"
       unless owner_class.nil?
         sleep 1
-        unless owner_class
-          p owner_class
-          migration_template 'add_gallery_owner.rb', "db/migrate/add_polymorphic_association_to_gallery.rb"
-        end
+        p owner_class
+        migration_template 'add_gallery_owner.rb', "db/migrate/add_polymorphic_association_to_gallery.rb"
       end
     end
 
