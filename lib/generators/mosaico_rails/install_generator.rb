@@ -3,15 +3,11 @@ module MosaicoRails
     include Rails::Generators::Migration
 
     argument :owner_class, :type => :string, optional: true#, :default => "user"
-    argument :gallery_class, :type => :string, :default => "gallery"
-    argument :image_class, :type => :string, :default => "image"
 
     source_root File.expand_path('../templates', __FILE__)
 
     def create_initializer_file
       p owner_class
-      p gallery_class
-      p image_class
       copy_file("paperclip.rb", "config/initializers/paperclip.rb")
       if owner_class
         create_file("config/initializers/mosaico-rails.rb", "MosaicoRails.owner_class = '#{owner_class.classify}'\n# Init Mosaico once, default value is true\n# MosaicoRails.auto_init: true")
@@ -21,10 +17,10 @@ module MosaicoRails
     end
 
     def create_active_record_db
-      migration_template "create_table_gallery.rb.erb", "db/migrate/create_table_#{gallery_class.pluralize}.rb"
+      migration_template "create_table_gallery.rb", "db/migrate/create_table_mosaico_rails_galleries.rb"
       sleep 1 # to increment migration version
-      migration_template 'create_table_image.rb.erb', "db/migrate/create_table_#{image_class.pluralize}.rb"
-      unless owner_class.nil?
+      migration_template 'create_table_image.rb', "db/migrate/create_table_mosaico_rails_images.rb"
+      unless  owner_class.nil?
         sleep 1
         p owner_class
         migration_template 'add_gallery_owner.rb', "db/migrate/add_polymorphic_association_to_gallery.rb"

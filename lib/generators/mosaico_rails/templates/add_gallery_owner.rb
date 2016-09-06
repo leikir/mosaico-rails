@@ -1,4 +1,4 @@
-class AddPolymorphicAssociationToGallery < ActiveRecord::Migration[5.0]
+class AddPolymorphicAssociationToGallery < ActiveRecord::Migration
   def change
     add_column :mosaico_rails_galleries, :mosaico_rails_imageable_id, :integer
     add_column :mosaico_rails_galleries, :mosaico_rails_imageable_type, :string
