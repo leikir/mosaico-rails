@@ -4,4 +4,5 @@ MosaicoRails::Engine.routes.draw do
   get   '/upload' => 'images#index'
   get   '/img'     => 'images#show',                as: :mosaico_image
   get 	'/templates/:id' => 'email_templates#show', as: :mosaico_template
+  get		'/translations/:locale' => 'translations#show'
 end
