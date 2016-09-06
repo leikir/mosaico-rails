@@ -33,7 +33,7 @@ module MosaicoRails
     end
 
     def as_json(options = {})
-      hostname = options[:host]
+      hostname = Rails.env == 'production' ? options[:host] : ''
       {
         deleteType: 'DELETE',
         deleteUrl: "#{hostname}delete/#{self.id}",
