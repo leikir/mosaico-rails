@@ -21,9 +21,9 @@ module MosaicoRails
     end
 
     def create_active_record_db
-      migration_template "create_table_gallery.rb.erb", "db/migrate/create_table_#{gallery_class.pluralize}.rb"
+      migration_template "create_table_gallery.rb.erb", "db/migrate/create_table_#{gallery_class.downcase.pluralize}.rb"
       sleep 1 # to increment migration version
-      migration_template 'create_table_image.rb.erb', "db/migrate/create_table_#{image_class.pluralize}.rb"
+      migration_template 'create_table_image.rb.erb', "db/migrate/create_table_#{image_class.downcase.pluralize}.rb"
       unless owner_class.nil?
         sleep 1
         p owner_class
