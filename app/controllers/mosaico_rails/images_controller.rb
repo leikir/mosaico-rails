@@ -15,8 +15,7 @@ class MosaicoRails::ImagesController < ActionController::Base
       send_data data.read, type: data.content_type, disposition: 'inline'
     elsif params[:method] == 'resize' || params[:method] == 'cover'
       method = params[:method] == 'resize' ? '>' : '#'
-      
-      target_url = URI.parse(params[:src]).path
+      target_url = params[:src]
       image = MosaicoRails::Image.find_by(image_url: target_url)
       width, height = params[:params].gsub('null', '0').split(',')
       data = image.dynamic_attachment_url("#{width}x#{height}#{method}")
