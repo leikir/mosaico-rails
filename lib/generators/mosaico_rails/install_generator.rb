@@ -62,5 +62,18 @@ module MosaicoRails
     def self.next_migration_number(dir)
       Time.now.utc.strftime("%Y%m%d%H%M%S")
     end
+
+    def parse_file_for_line(filename, str)
+      match = false
+
+      File.open(File.join(destination_root, filename)) do |f|
+        f.each_line do |line|
+          if line =~ /(#{Regexp.escape(str)})/mi
+            match = line
+          end
+        end
+      end
+      match
+    end
   end
 end
