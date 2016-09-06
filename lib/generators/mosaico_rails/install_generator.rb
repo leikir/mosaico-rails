@@ -12,7 +12,7 @@ module MosaicoRails
       if owner_class
         create_file("config/initializers/mosaico-rails.rb", "MosaicoRails.owner_class = '#{owner_class.classify}'\n# Init Mosaico once, default value is true\n# MosaicoRails.auto_init: true")
       else
-        create_file("config/initializers/mosaico-rails.rb", "# Init Mosaico once, default value is true\n# MosaicoRails.auto_init: true")
+        create_file("config/initializers/mosaico-rails.rb", "# Init Mosaico once, default value is true\n# MosaicoRails.auto_init = true")
       end
     end
 
@@ -22,7 +22,6 @@ module MosaicoRails
       migration_template 'create_table_image.rb', "db/migrate/create_table_mosaico_rails_images.rb"
       unless  owner_class.nil?
         sleep 1
-        p owner_class
         migration_template 'add_gallery_owner.rb', "db/migrate/add_polymorphic_association_to_gallery.rb"
       end
     end
