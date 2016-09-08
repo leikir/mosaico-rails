@@ -7,7 +7,7 @@ Paperclip::Attachment.default_options[:use_timestamp] = false
 # Uploading file to s3
 # You will need to add gem 'aws-sdk', '~> 2.3' into your Gemfile and
 # complete settings below this line
-#
+
 # Paperclip::Attachment.default_options[:path] = ":class/:attachment/:id_partition/:style/:filename"
 # Paperclip::Attachment.default_options[:s3_host_name] = "s3-#{ENV.fetch('UPLOAD_BUCKET_S3_REGION')}.amazonaws.com"
 

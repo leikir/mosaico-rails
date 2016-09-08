@@ -1,17 +1,17 @@
-class MosaicoRails::EmailTemplatesController < ActionController::Base
-
+class MosaicoRails::EmailTemplatesController < ApplicationController
   def editor
   end
 
   def show
+    # Error management not supported.
     template_id = params[:id]
-  	original_template = File.open(
+    original_template = File.open(
       File.join(
         File.dirname(__FILE__),
         "../../../vendor/assets/mosaico/mosaico/templates/#{template_id}/template-#{template_id}.html"
       )
     ).read
-  	new_template = original_template.gsub(
+    new_template = original_template.gsub(
       /src="img\/(.*\.(png|jpg|jpeg|gif))"/
     ) { |match|
       image_name = "mosaico/templates/#{template_id}/img/#{$1}"

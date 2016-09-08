@@ -10,4 +10,8 @@ module MosaicoRails
   MosaicoRails::Engine.configure do
     config.paperclip_defaults = {}
   end
+
+  # config.generators do |g|
+  #   g.test_framework :rspec
+  # end
 end
