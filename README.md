@@ -11,25 +11,25 @@ You can add it to your Gemfile with:
 gem 'mosaico-rails'
 ```
 
-Run the bundle command to install it, or install it yourself as:
-```bash
-$ gem install mosaico-rails
-```
-
-Next, you need to run the generator:
-
-```console
-$ rails generate mosaico_rails:install
-```
-
 # Setup
 
 Run the following command for an easy one-step installation:
 ```bash
-  rails generate mosaico_rails:install [OWNER_CLASS] [GALLERY_CLASS] [IMAGE_CLASS]
+  rails generate mosaico_rails:install OWNER_CLASS
 ```
-When you run the command install without argument, the first one will be `User`, next `Gallery` and then `Image`. Here, `User`, corresponds to the owner's gallery. You must write all class name if you want to change the last one. 
+This command generates `MosaicoRails::Gallery` and `MosaicoRails::Image` migrations. You can bind your Gallery to an existing model as User or whatever as:
+```bash
+  rails generate mosaico_rails:install User
+```
+It generates some routes, mount as `'/'`... bla bla les routes
 
+Then,
+```bash
+  rake db:migrate
+```
+
+# Storage
+As [Paperclip](https://github.com/thoughtbot/paperclip), you can store your file into your file system or to S3. Actually `mosaico-rails` doesn't provide `Fog` storage adapter.
 
 
 ## License
