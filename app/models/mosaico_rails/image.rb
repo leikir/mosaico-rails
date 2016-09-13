@@ -8,8 +8,7 @@ module MosaicoRails
       foreign_key: :mosaico_rails_gallery_id
 
     has_attached_file :image,
-      { default_url: "/images/:style/missing.png",
-        styles: Proc.new { |attachment| attachment.instance.styles },
+      {styles: Proc.new { |attachment| attachment.instance.styles },
       }.merge(MosaicoRails::Engine.config.paperclip_defaults || {}) # Here, merge had to be explicit
 
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

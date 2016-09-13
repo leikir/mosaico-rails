@@ -3,7 +3,8 @@ module MosaicoRails
     include Rails::Generators::Migration
     require "rails/generators/active_record"
 
-    argument :owner_class, :type => :string, optional: true#, :default => "user"
+    argument :owner_class, :type => :string, optional: true
+    argument :parent_controller, :type => :string, optional: true
 
     source_root File.expand_path('../templates', __FILE__)
 
@@ -14,8 +15,14 @@ module MosaicoRails
       # MosaicoRails config parameters
       owner_class = owner_class.present? ? "MosaicoRails.owner_class = '#{owner_class.classify}'\n" : ''
       auto_init = "# Init Mosaico once, default value is true\n# MosaicoRails.auto_init = true\n"
+      current_gallery_method = "# MosaicoRails.current_gallery_method = :current_gallery\n"
+      if parent_controller.present?
+        parent_controller_line =  "MosaicoRails.parent_controller = '#{parent_controller}'\n"
+      end
       
-      create_file("config/initializers/mosaico-rails.rb", owner_class + auto_init)
+      create_file("config/initializers/mosaico-rails.rb",
+        owner_class + auto_init + current_gallery_method + parent_controller_line
+      )
     end
 
     def create_active_record_db

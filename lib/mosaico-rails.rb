@@ -4,14 +4,13 @@ require "tinymce-rails"
 module MosaicoRails
   mattr_accessor :owner_class
   mattr_accessor :auto_init
+  mattr_accessor :current_gallery_method
+  mattr_accessor :parent_controller
 
   self.auto_init = true
+  self.parent_controller = "Api::V1::BaseController"
 
   MosaicoRails::Engine.configure do
     config.paperclip_defaults = {}
   end
-
-  # config.generators do |g|
-  #   g.test_framework :rspec
-  # end
 end

@@ -1,0 +1,2 @@
+class MosaicoRails::MosaicoRailsController < MosaicoRails.parent_controller.constantize
+end

@@ -1,4 +1,4 @@
-class MosaicoRails::EmailTemplatesController < ApplicationController
+class MosaicoRails::EmailTemplatesController < MosaicoRails::MosaicoRailsController
   def editor
   end
 

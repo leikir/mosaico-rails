@@ -1,6 +1,6 @@
-class MosaicoRails::ImagesController < MosaicoRails::ApplicationController
+class MosaicoRails::ImagesController < MosaicoRails::MosaicoRailsController
   
-  before_action :set_current_gallery
+  before_action :current_gallery, only: :index
 
   def index
     # Error management not supported.
@@ -8,7 +8,7 @@ class MosaicoRails::ImagesController < MosaicoRails::ApplicationController
     render json: { files: @images_url }
   end
 
-  def show
+  def mosailco_rails_show_img
     # Error management not supported.
     width, height = params[:params].gsub('null', '0').split(',')
 

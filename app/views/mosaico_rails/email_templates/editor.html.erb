@@ -12,7 +12,6 @@
     <%= javascript_include_tag "mosaico_rails/editor.js" %>
 
     <%= javascript_tag do %>
-
       window.mosaicoOptions = {
         imgProcessorBackend: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_image_path %>',
         titleToken: "MOSAICO Responsive Email Designer",
