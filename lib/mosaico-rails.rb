@@ -9,7 +9,7 @@ module MosaicoRails
   mattr_accessor :current_gallery_method
 
   self.auto_init = true
-  self.parent_controller = 'ApplicationController'
+  self.parent_controller = 'Api::V1::BaseController'
 
   MosaicoRails::Engine.configure do
     config.paperclip_defaults = {}

@@ -1,11 +1,4 @@
-class MosaicoRails::ImagesController < MosaicoRails::MosaicoRailsController
-  before_action :set_default_gallery, only: :index
-
-  def index
-    # Error management not supported.
-    @images_url = @current_gallery.images.as_json(host: request.host)
-    render json: { files: @images_url }
-  end
+class MosaicoRails::ImagesController < ApplicationController
 
   def show
     # Error management not supported.

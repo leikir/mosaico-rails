@@ -1,5 +1,7 @@
-describe 'Images', :type => :controller do
-  describe 'images#index' do
+require "spec_helper"
+
+describe 'MosaicoRails::Images', :type => :controller do
+  describe 'MosaicoRails::images#index' do
     it do
       get :index
       expect(response.status).to eq 200
