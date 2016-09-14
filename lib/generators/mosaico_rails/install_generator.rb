@@ -13,15 +13,18 @@ module MosaicoRails
       copy_file("paperclip.rb", "config/initializers/paperclip.rb")
       
       # MosaicoRails config parameters
-      owner_class = owner_class.present? ? "MosaicoRails.owner_class = '#{owner_class.classify}'\n" : ''
-      auto_init = "# Init Mosaico once, default value is true\n# MosaicoRails.auto_init = true\n"
-      current_gallery_method = "# MosaicoRails.current_gallery_method = :current_gallery\n"
-      if parent_controller.present?
-        parent_controller_line =  "MosaicoRails.parent_controller = '#{parent_controller}'\n"
+      auto_init_line = "# Init Mosaico once, default value is true\n# MosaicoRails.auto_init = true\n"
+      parent_controller_line = parent_controller.present? ? "MosaicoRails.parent_controller = '#{parent_controller}'\n" : ''
+
+      if owner_class.present? && owner_class != 'nil'
+        owner_class_line = "MosaicoRails.owner_class = '#{owner_class.classify}'\n"
+        current_gallery_method = "MosaicoRails.current_gallery_method = :current_gallery\n"
+      else
+        owner_class_line = ''
+        current_gallery_method = ''
       end
-      
       create_file("config/initializers/mosaico-rails.rb",
-        owner_class + auto_init + current_gallery_method + parent_controller_line
+        owner_class_line + auto_init_line + current_gallery_method + parent_controller_line
       )
     end
 
@@ -48,7 +51,7 @@ module MosaicoRails
 
     def create_routes
       fname = 'config/routes.rb'
-      inject_into_file fname, "\nmount MosaicoRails::Engine, at: '/'\n", after: "Rails.application.routes.draw do\n"
+      inject_into_file fname, "\n  mount MosaicoRails::Engine, at: '/'\n", after: "Rails.application.routes.draw do\n"
     end
 
     private 
