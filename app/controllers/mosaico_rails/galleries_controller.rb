@@ -9,7 +9,7 @@ class MosaicoRails::GalleriesController <  MosaicoRails::MosaicoRailsController
 
   def show
     # Error management not supported.
-    @images_url = @current_gallery.images.as_json(host: request.host)
+    @images_url = @current_gallery.images.as_json
     render json: { files: @images_url }
   end
 

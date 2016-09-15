@@ -2,7 +2,7 @@ class MosaicoRails::ImagesController < ActionController::Base
   before_action :set_current_gallery
 
   def index
-    @images_url = @gallery.images.as_json(host: request.host)
+    @images_url = @gallery.images.as_json
     render json: { files: @images_url }
   end
 

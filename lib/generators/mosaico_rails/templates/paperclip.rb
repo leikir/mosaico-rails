@@ -2,23 +2,19 @@ require "paperclip/railtie"
 
 Paperclip::Railtie.insert
 
-Paperclip::Attachment.default_options[:use_timestamp] = false
+# Configure upload to s3
+# Uncomment and replace all 'XXX' to use your s3 storage
 
-# Uploading file to s3
-# You will need to add gem 'aws-sdk', '~> 2.3' into your Gemfile and
-# complete settings below this line
-
-# Paperclip::Attachment.default_options[:path] = ":class/:attachment/:id_partition/:style/:filename"
-# Paperclip::Attachment.default_options[:s3_host_name] = "s3-#{ENV.fetch('UPLOAD_BUCKET_S3_REGION')}.amazonaws.com"
-
-# MosaicoRails::Engine.configure do
-#   config.paperclip_defaults = {
-#     storage: :s3,
-#     s3_region: ENV.fetch('UPLOAD_BUCKET_S3_REGION'),
-#     s3_credentials: {
-#       bucket: ENV.fetch('UPLOAD_BUCKET_S3_NAME'),
-#       access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-#       secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY')
-#     }
-#   }
-# end
+# MosaicoRails::Engine.config.paperclip_defaults = {
+# 	use_timestamp: false,
+#   storage: :s3,
+#   s3_credentials: {
+#     bucket: 'XXX',
+#     access_key_id: 'XXX',
+#     secret_access_key: 'XXX',
+#     s3_region: 'XXX'
+#   },
+#   url: ':s3_domain_url',
+#   path: ":attachment/:id_partition/:style/:filename",
+#   s3_host_name: "s3-XXX.amazonaws.com"
+# }
