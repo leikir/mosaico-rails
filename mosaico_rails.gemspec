@@ -7,8 +7,8 @@ require "mosaico_rails/version"
 Gem::Specification.new do |s|
   s.name        = "mosaico-rails"
   s.version     = MosaicoRails::VERSION
-  s.authors     = ["yyaegash"]
-  s.email       = ["yoko.yaeg@gmail.com"]
+  s.authors     = ["leikir"]
+  s.email       = ["web@leikir.io"]
   s.homepage    = ""
   s.summary     = "Summary of MosaicoRails."
   s.description = "Description of MosaicoRails."
@@ -19,11 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency "paperclip"
   s.add_dependency 'aws-sdk', '< 2.0'
   s.add_dependency "tinymce-rails"
-
-# Tests
-  s.add_development_dependency 'rspec-rails'
-  s.add_dependency 'pry'
-
-  # s.test_files = Dir["spec/**/*"]
 
 end
