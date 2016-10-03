@@ -31,6 +31,8 @@ Then,
 # Storage
 As [Paperclip](https://github.com/thoughtbot/paperclip), you can store your file into your file system or to S3. Actually `mosaico-rails` doesn't provide `Fog` storage adapter.
 
+# Note
+You should check your version of uglifier, if needed, as you can experience problems while uglifying mosaico's source code that is already uglified. We recommand using `uglifier >= (3.0.2)`
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
