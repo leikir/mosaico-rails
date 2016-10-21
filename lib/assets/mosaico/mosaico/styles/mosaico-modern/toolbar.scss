@@ -1,0 +1,174 @@
+$modern-bg-color: #2b2f3a;
+$active-color: #f7931e;
+$lato: "open_sanssemibold",Helvetica,Arial,sans-serif;
+
+body {
+  background-color: $modern-bg-color;
+}
+
+/*
+** TOOLBAR: UNDO, REDO, GALLERY, PREVIEW
+*/
+
+#toolbar {
+  background-color: $modern-bg-color;
+  text-align: center;
+  padding-top: 0px;
+  top: 1px;
+}
+
+#toolbar > span:nth-child(1) > a {
+  background-color: $modern-bg-color;
+}
+
+// PREVIEW
+#toolbar > label[for="previewFrameToggle"] {
+  background-color: $modern-bg-color;
+  float: right;
+}
+
+#toolbar > label[for="previewFrameToggle"]:hover,
+#toolbar > span:nth-child(2) > label:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#toolbar > label[for="previewFrameToggle"] > span.fa,
+#toolbar > span:nth-child(2) > label > span.fa {
+  background-color: transparent;
+  color: #777;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+}
+
+#toolbar > label[for="previewFrameToggle"]:hover > span.fa,
+#toolbar > span:nth-child(2) > label:hover > span.fa {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+// GALLERY
+#toolbar > span:nth-child(2) {
+  float: right;
+}
+
+#toolbar > span:nth-child(2) > label {
+  background-color: $modern-bg-color;
+}
+
+#toolbar .leftButtons {
+  float: none;
+}
+
+#toolbar .leftButtons > a > span.fa {
+  display: none;
+}
+
+#toolbar .leftButtons > a > span {
+  font-family: $lato;
+  font-size: 10px;
+}
+
+#toolbar .leftButtons > a.ui-corner-left {
+  border-radius: 0px;
+  border: none;
+}
+
+#toolbar .leftButtons > a:hover {
+  border: none;
+  background-color: transparent;
+}
+
+#toolbar .leftButtons > a.ui-state-disabled > .ui-button-text {
+  color: #777;
+}
+
+/*
+** !TOOLBAR
+*/
+
+
+/*
+** TOOLTABS: BLOCKS, CONTENT AND STYLE EDITION
+*/
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav {
+  background-color: $modern-bg-color;
+  padding-left: 0;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li {
+  width: 33.3333333%;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li.ui-state-hover,
+.mo .ui-tabs.tabs_horizontal.button_color > ul li > a:hover {
+  border: none;
+  background-color: $active-color;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li.ui-state-active {
+  background-color: $active-color;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li {
+  margin-top: 0px;
+  margin-right: 0px;
+  line-height: 39px;
+}
+
+.mo .ui-tabs.tabs_horizontal.button_color > ul li.ui-state-active a {
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li span {
+  font-size: 10px;
+  font-family: $lato;
+}
+
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw.fa-cubes:before {
+  content: ' ';
+  background-image: url('/assets/mosaico/templates/modern/edres/icon-bloc.png');
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw.fa-pencil:before {
+  content: url('/assets/mosaico/templates/modern/edres/icon-content.png');
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw.fa-paint-brush:before {
+  content: url('/assets/mosaico/templates/modern/edres/icon-style.png');
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*
+** !TOOLTABS
+*/
