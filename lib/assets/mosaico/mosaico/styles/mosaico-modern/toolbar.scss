@@ -83,7 +83,6 @@ body {
 }
 
 #toolbar .leftButtons > a:hover {
-  border: none;
   background-color: transparent;
 }
 
@@ -101,7 +100,7 @@ body {
 */
 
 #main-toolbox {
-  box-shadow: 0 0 2px gray,0 0 1px gray;
+  box-shadow: 0 0 1px gray,0 0 1px gray;
 }
 
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav {
@@ -177,3 +176,9 @@ body {
 /*
 ** !TOOLTABS
 */
+
+
+#main-edit-area:before,
+#main-edit-area:after {
+  box-shadow: none;
+}
