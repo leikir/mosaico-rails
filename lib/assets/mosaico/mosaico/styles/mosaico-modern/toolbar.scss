@@ -1,6 +1,6 @@
 $modern-bg-color: #2b2f3a;
 $active-color: #f7931e;
-$lato: "open_sanssemibold",Helvetica,Arial,sans-serif;
+$font: "open_sanssemibold",Helvetica,Arial,sans-serif;
 
 body {
   background-color: $modern-bg-color;
@@ -73,7 +73,7 @@ body {
 }
 
 #toolbar .leftButtons > a > span {
-  font-family: $lato;
+  font-family: $font;
   font-size: 10px;
 }
 
@@ -100,9 +100,14 @@ body {
 ** TOOLTABS: BLOCKS, CONTENT AND STYLE EDITION
 */
 
+#main-toolbox {
+  box-shadow: 0 0 2px gray,0 0 1px gray;
+}
+
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav {
   background-color: $modern-bg-color;
   padding-left: 0;
+  box-shadow: none;
 }
 
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li {
@@ -132,7 +137,7 @@ body {
 
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li span {
   font-size: 10px;
-  font-family: $lato;
+  font-family: $font;
 }
 
 
