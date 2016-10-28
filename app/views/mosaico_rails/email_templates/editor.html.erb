@@ -33,6 +33,15 @@
             return window.templatePath[name];
           };
           viewModel.logoPath = '<%= asset_path('mosaico/dist/img/mosaico32.png') %>';
+        },
+        function(viewModel) {
+          $(document).on('click', '#frame-container', function(event) {
+            console.log(event);
+            if (!$(event.target).is('#frame-container > iframe')) {
+              console.log('targetted');
+              viewModel.showPreviewFrame(false);
+            }
+          });
         }
       ];
     <% end %>

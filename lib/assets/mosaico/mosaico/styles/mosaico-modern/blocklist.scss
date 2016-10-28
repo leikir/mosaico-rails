@@ -40,7 +40,10 @@
 #toolstyles .objLabel span,
 #toolstyles .propLabel span,
 #toolcontents .propInput input:not([type=checkbox]),
-#toolstyles .propInput input:not([type=checkbox]), {
+#toolstyles .propInput input:not([type=checkbox]),
+#main-toolbox .noSelectedBlock,
+#main-toolbox .customStyleHelp,
+#main-toolbox .objEmpty {
   font-family: "open_sanssemibold",Helvetica,Arial,sans-serif;
 }
 
@@ -61,6 +64,7 @@
 
 #main-toolbox .objEdit .propInput input[type=checkbox]:checked+.checkbox-replacer:before {
   background-color: #f7931e;
+  box-shadow: none
 }
 
 #main-toolbox .objEdit .propInput input[type=checkbox]:checked+.checkbox-replacer:after {
@@ -70,6 +74,11 @@
 #main-toolbox .objEdit .propInput input[type=checkbox]+.checkbox-replacer:after {
   background-color: #ccc;
 }
+
+#main-toolbox .objEdit .propInput input[type=checkbox]+.checkbox-replacer:before {
+  box-shadow: none;
+}
+
 
 #main-toolbox .propEditor .propInput input:not([type=checkbox]),
 #main-toolbox .propEditor .propInput select {
@@ -210,6 +219,27 @@
   transition: opacity 0.6s ease-in-out;
 }
 
+// #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected:before {
+//   content: ' ';
+//   top: -2005px; // Because of mo-blockselectionhelper outline
+//   height: 2000px;
+//   position: absolute;
+//   width: 100%;
+//   background-color: rgba(255,255,255,0.6);
+//   left: 0
+// }
+//
+// #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected:after {
+//   content: ' ';
+//   bottom: -2005px;
+//   height: 2000px;
+//   position: absolute;
+//   width: 100%;
+//   background-color: rgba(255,255,255,0.6);
+//   left: 0;
+// }
+
+
 #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable:not(.selected) {
   opacity: 0.4;
 }
@@ -231,7 +261,7 @@
   border: 0;
   top: -26px;
   margin-bottom: -26px;
-  box-shadow: 1px 1px 3px #727272;
+  box-shadow: none;
   right: 5px;
   position: relative;
   float: right;
@@ -267,7 +297,8 @@
 }
 
 #main-toolbox .blockCheck input[type=checkbox]+.checkbox-replacer:after,
-#main-toolbox .blockCheck input[type=checkbox]:checked+.checkbox-replacer:after {
+#main-toolbox .blockCheck input[type=checkbox]:checked+.checkbox-replacer:after,
+.mo .notnull .propCheck input[type=checkbox]:checked+.checkbox-replacer:before {
   content: '\f096';
 }
 

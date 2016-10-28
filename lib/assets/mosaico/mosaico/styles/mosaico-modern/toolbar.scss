@@ -28,23 +28,30 @@ body {
 }
 
 #toolbar > label[for="previewFrameToggle"]:hover,
-#toolbar > span:nth-child(2) > label:hover {
+#toolbar #showGallery + label:hover {
   background-color: transparent;
   cursor: pointer;
 }
 
 #toolbar > label[for="previewFrameToggle"] > span.fa,
-#toolbar > span:nth-child(2) > label > span.fa {
+#toolbar #showGallery + label > span.fa {
   background-color: transparent;
-  color: #777;
+  color: #fff;
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
+  font-size: 20px;
+}
+
+#toolbar > label[for="previewFrameToggle"] > span.fa {
+  position: relative;
+  top: 3px;
+  font-size: 23px;
 }
 
 #toolbar > label[for="previewFrameToggle"]:hover > span.fa,
-#toolbar > span:nth-child(2) > label:hover > span.fa {
+#toolbar #showGallery + label:hover > span.fa {
   background-color: transparent;
   color: #fff;
   cursor: pointer;
@@ -60,8 +67,12 @@ body {
   float: right;
 }
 
-#toolbar > span:nth-child(2) > label {
+#toolbar #showGallery + label {
   background-color: $modern-bg-color;
+}
+
+#toolbar #showGallery + label .ui-button-text {
+  display: none;
 }
 
 #toolbar .leftButtons {
