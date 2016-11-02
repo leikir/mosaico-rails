@@ -288,7 +288,7 @@
 #main-toolbox .blockCheck input[type=checkbox]+.checkbox-replacer:before,
 #main-toolbox .blockCheck input[type=checkbox]:checked+.checkbox-replacer:before {
   content: ' ';
-  background-image: url('/assets/mosaico/templates/modern/edres/icon-bloc.png');
+  background-image: image-url('mosaico/templates/modern/edres/icon-bloc.png');
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;

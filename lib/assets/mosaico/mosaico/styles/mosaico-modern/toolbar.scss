@@ -158,7 +158,7 @@ body {
 
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw.fa-cubes:before {
   content: ' ';
-  background-image: url('/assets/mosaico/templates/modern/edres/icon-bloc.png');
+  background-image: image-url('mosaico/templates/modern/edres/icon-bloc.png');
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -167,7 +167,7 @@ body {
 }
 
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw.fa-pencil:before {
-  content: url('/assets/mosaico/templates/modern/edres/icon-content.png');
+  content: image-url('mosaico/templates/modern/edres/icon-content.png');
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -176,7 +176,7 @@ body {
 }
 
 .mo-standalone #main-toolbox #tooltabs.ui-tabs > ul.ui-tabs-nav > li .fa.fa-fw.fa-paint-brush:before {
-  content: url('/assets/mosaico/templates/modern/edres/icon-style.png');
+  content: image-url('mosaico/templates/modern/edres/icon-style.png');
   display: inline-block;
   width: 16px;
   height: 16px;
