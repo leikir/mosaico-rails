@@ -3,6 +3,7 @@ module MosaicoRails
     isolate_namespace MosaicoRails
     initializer "mosaico-rails.assets.precompile" do |app|
       app.config.tinymce.install = :compile
+      app.config.assets.paths << MosaicoRails::Engine.root.join("lib", "assets", "mosaico")
       app.config.assets.paths << MosaicoRails::Engine.root.join("vendor", "assets", "mosaico")
       app.config.assets.precompile += %w(
         mosaico_rails/editor.css

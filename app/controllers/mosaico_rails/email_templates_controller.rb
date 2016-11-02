@@ -8,7 +8,7 @@ class MosaicoRails::EmailTemplatesController < ApplicationController
     original_template = File.open(
       File.join(
         File.dirname(__FILE__),
-        "../../../vendor/assets/mosaico/mosaico/templates/#{template_id}/template-#{template_id}.html"
+        "../../../lib/assets/mosaico/mosaico/templates/#{template_id}/template-#{template_id}.html"
       )
     ).read
     new_template = original_template.gsub(

@@ -1,0 +1,379 @@
+#toolblocks > .block-list {
+  max-width: 100%;
+  width: 100%;
+}
+
+#main-toolbox #tooltabs.ui-tabs #toolcontents.ui-tabs-panel,
+#main-toolbox #tooltabs.ui-tabs #toolstyles.ui-tabs-panel {
+  padding: 0;
+}
+
+#toolblocks > .block-list .draggable-item .addblockbutton {
+  background-color: #f7931e;
+}
+
+/* BLOCK CONTENT EDIT */
+
+#toolcontents .objEdit,
+#toolstyles .objEdit {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+#toolcontents .propLabel,
+#toolstyles .propLabel {
+  text-align: left;
+  padding-left: 25px;
+}
+
+#toolcontents .objLabel,
+#toolstyles .objLabel {
+  background-color: #eee;
+  border-radius: 0px;
+  padding-left: 25px;
+}
+
+#toolcontents .objLabel span,
+#toolcontents .propLabel span,
+#toolstyles .objLabel span,
+#toolstyles .propLabel span,
+#toolcontents .propInput input:not([type=checkbox]),
+#toolstyles .propInput input:not([type=checkbox]),
+#main-toolbox .noSelectedBlock,
+#main-toolbox .customStyleHelp,
+#main-toolbox .objEmpty {
+  font-family: "open_sanssemibold",Helvetica,Arial,sans-serif;
+}
+
+#toolcontents .editor .objEdit.level0 > .propEditor,
+#toolstyles .editor .objEdit.level0 > .propEditor {
+  background-color: white;
+}
+
+#toolcontents .editor .objEdit.level0 > .objLabel.level0,
+#toolstyles .editor .objEdit.level0 > .objLabel.level0 {
+  padding-left: 32px;
+}
+
+#main-toolbox .propEditor .propInput .checkbox-replacer {
+  float: right;
+  margin-right: 25px;
+}
+
+#main-toolbox .objEdit .propInput input[type=checkbox]:checked+.checkbox-replacer:before {
+  background-color: #f7931e;
+  box-shadow: none
+}
+
+#main-toolbox .objEdit .propInput input[type=checkbox]:checked+.checkbox-replacer:after {
+  background-color: #ffa588;
+}
+
+#main-toolbox .objEdit .propInput input[type=checkbox]+.checkbox-replacer:after {
+  background-color: #ccc;
+}
+
+#main-toolbox .objEdit .propInput input[type=checkbox]+.checkbox-replacer:before {
+  box-shadow: none;
+}
+
+
+#main-toolbox .propEditor .propInput input:not([type=checkbox]),
+#main-toolbox .propEditor .propInput select {
+  display: block;
+  width: 100%;
+  height: 31px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  background-color: #eee;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+}
+
+#main-toolbox .propEditor .propInput input:focus,
+#main-toolbox .propEditor .propInput select:focus {
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+}
+
+#main-toolbox .propEditor .propInput {
+  margin-left: -5px;
+  width: 50%;
+}
+
+#main-toolbox .objEdit.level1.selectable:hover:after {
+  outline: 0;
+}
+
+/* !BLOCK CONTENT EDIT */
+
+/* BLOCKS LIST */
+
+@keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.02); }
+	100% { transform: scale(1); }
+}
+
+@-webkit-keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.02); }
+	100% { transform: scale(1); }
+}
+
+#toolblocks > .block-list > .draggable-item:hover {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-out;
+  transform: initial;
+}
+
+/* !BLOCKS LIST */
+
+/* BLOCK ACTIONS TOOLS */
+
+#main-edit-area .tools {
+  left: initial;
+  top: 0;
+  width: 10px;
+}
+
+#main-edit-area .editable:not(.selected):hover .tools {
+  visibility: hidden;
+}
+
+#main-edit-area .editable.selected .tools {
+  visibility: visible;
+}
+
+#main-edit-area .tool {
+  background-color: black;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  box-shadow: none;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+#main-edit-area .tools .tool.delete,
+#main-edit-area .tools .tool.clone,
+#main-edit-area .tools .tool.handle,
+#main-edit-area .tools .tool.moveup,
+#main-edit-area .tools .tool.movedown,
+#main-edit-area .tools .tool.variant {
+  margin-right: 0;
+  margin-left: 0px;
+  float: left;
+}
+
+#main-edit-area .tools .tool.movedown {
+  line-height: 0;
+}
+
+#main-edit-area .tools .tool.movedown .fa-sort-desc {
+  line-height: 0.8;
+}
+
+#main-edit-area .tools .tool.moveup {
+  line-height: 0.8;
+}
+
+#main-edit-area .midtools .tool.upload {
+  font-size: 15px;
+}
+
+#main-edit-area .tools .fa {
+  font-size: 12px;
+}
+
+#main-edit-area .tools .tool {
+  vertical-align: bottom;
+  line-height: 0.6;
+}
+
+#main-edit-area .tool:hover {
+  background-color: #f7931e;
+}
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected .mo-blockselectionhelper {
+  border: none;
+}
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected {
+  opacity: 1;
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+
+// #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected:before {
+//   content: ' ';
+//   top: -2005px; // Because of mo-blockselectionhelper outline
+//   height: 2000px;
+//   position: absolute;
+//   width: 100%;
+//   background-color: rgba(255,255,255,0.6);
+//   left: 0
+// }
+//
+// #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected:after {
+//   content: ' ';
+//   bottom: -2005px;
+//   height: 2000px;
+//   position: absolute;
+//   width: 100%;
+//   background-color: rgba(255,255,255,0.6);
+//   left: 0;
+// }
+
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable:not(.selected) {
+  opacity: 0.4;
+}
+
+/* !BLOCK ACTIONS TOOLS */
+
+
+/* BLOCK STYLES */
+
+.mo .objPreview {
+  display: none;
+}
+
+.mo .propInput .evo-pointer {
+  border-radius: 50%;
+  min-height: 0px;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  top: -26px;
+  margin-bottom: -26px;
+  box-shadow: none;
+  right: 5px;
+  position: relative;
+  float: right;
+  left: auto;
+}
+
+.mo .propInput .data-color input[type=text],
+.mo .propInput .data-color input[type=text]:hover,
+.mo .propInput .data-color input[type=text]:focus {
+  margin-left: 0px;
+}
+
+.mo .propInput .data-color > div {
+  width: 100% !important;
+}
+
+/* !BLOCK STYLES */
+
+#main-toolbox .blockCheck input[type=checkbox]:checked+.checkbox-replacer:after,
+#main-toolbox .blockCheck input[type=checkbox]+.checkbox-replacer:before {
+  background-color: #f7931e;
+}
+
+#main-toolbox .blockCheck input[type=checkbox]+.checkbox-replacer:before,
+#main-toolbox .blockCheck input[type=checkbox]:checked+.checkbox-replacer:before {
+  content: ' ';
+  background-image: url('/assets/mosaico/templates/modern/edres/icon-bloc.png');
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: initial;
+}
+
+#main-toolbox .blockCheck input[type=checkbox]+.checkbox-replacer:after,
+#main-toolbox .blockCheck input[type=checkbox]:checked+.checkbox-replacer:after,
+.mo .notnull .propCheck input[type=checkbox]:checked+.checkbox-replacer:before {
+  content: '\f096';
+}
+
+#main-toolbox .blockCheck input[type=checkbox]:checked + .checkbox-replacer:before {
+    background-position: 18%;
+    background-size: 16px;
+}
+
+/* COMMON */
+
+#main-toolbox .propEditor {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+#main-toolbox .objEdit.level0.supportsCustomStyles > .propEditor {
+  padding-top: 10px;
+}
+
+#main-toolbox .objEdit.level0 > .propEditor ~ .propEditor {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.mo .propLabel[title] {
+  text-decoration: none;
+}
+
+.mo #toolstyles .objEdit.level1 .objLabel.level1,
+.mo #toolcontents .objEdit.level1 .objLabel.level1 {
+  padding-bottom: 10px;
+  padding-left: 27px;
+}
+
+/* !COMMON */
+
+
+/* MAIN WYSIWYG AREA */
+
+#main-wysiwyg-area replacedbody:before,
+#main-wysiwyg-area replacedbody:after {
+  background: none;
+  border: none;
+}
+
+#main-wysiwyg-area replacedbody {
+  max-width: 100%;
+}
+
+#main-wysiwyg-area .oldwebkit {
+  max-width: 100% !important;
+}
+
+#main-wysiwyg-area .oldwebkit table[width="570"] {
+  max-width: 100% !important;
+}
+
+#main-wysiwyg-area .block table[id^=ko_doubleArticleBlock] div.mobile-full {
+  max-width: 50% !important;
+}
+
+#main-wysiwyg-area .block table[id^=ko_tripleArticleBlock] div.mobile-full {
+  max-width: 33.333333% !important;
+}
+
+#main-wysiwyg-area .block .img-wysiwyg.selectable-img {
+  margin: 0 auto;
+}
+
+/* !MAIN WYSIWYG AREA */
+
+.uploadzone .img-size, {
+  display: none;
+}
+
+.uploadzone .fileuploadtext .textMiddle {
+  font-size: 14px;
+}

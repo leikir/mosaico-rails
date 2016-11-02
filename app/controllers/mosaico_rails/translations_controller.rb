@@ -11,7 +11,7 @@ class MosaicoRails::TranslationsController < ApplicationController
       JSON.parse(File.read(MosaicoRails::Engine.root.join("vendor/assets/mosaico/mosaico/dist/lang/mosaico-en.json")))
     end
 
-    template_translations_file = MosaicoRails::Engine.root.join("lib/mosaico/templates/versafix-1/versafix-1-#{locale}.json")
+    template_translations_file = MosaicoRails::Engine.root.join("lib/assets/mosaico/mosaico/templates/modern/modern-#{locale}.json")
     if File.exists?(template_translations_file)
       translations.merge!({"template" => JSON.parse(File.read(template_translations_file))})
     end

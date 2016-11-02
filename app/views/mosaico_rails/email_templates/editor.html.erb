@@ -15,15 +15,15 @@
       window.mosaicoOptions = {
         imgProcessorBackend: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_image_path %>',
         titleToken: "MOSAICO Responsive Email Designer",
-        template: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_template_path('versafix-1') %>',
+        template: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_template_path('modern') %>',
         fileuploadConfig: {
           url: '<%= MosaicoRails::Engine.routes.url_helpers.mosaico_upload_path %>'
         }
       };
 
-      window.templatePath = <%= Hash[Dir.entries(MosaicoRails::Engine.root.join('vendor/assets/mosaico/mosaico/templates/versafix-1/edres')).map do |fileName|
+      window.templatePath = <%= Hash[Dir.entries(MosaicoRails::Engine.root.join('lib/assets/mosaico/mosaico/templates/modern/edres')).map do |fileName|
           if fileName.ends_with?('.png')
-            ["edres/#{fileName}", ActionController::Base.helpers.image_path("mosaico/templates/versafix-1/edres/#{fileName}")]
+            ["edres/#{fileName}", ActionController::Base.helpers.image_path("mosaico/templates/modern/edres/#{fileName}")]
           end
         end].to_json.html_safe %>;
       window.mosaicoPlugins = [
@@ -33,6 +33,15 @@
             return window.templatePath[name];
           };
           viewModel.logoPath = '<%= asset_path('mosaico/dist/img/mosaico32.png') %>';
+        },
+        function(viewModel) {
+          $(document).on('click', '#frame-container', function(event) {
+            console.log(event);
+            if (!$(event.target).is('#frame-container > iframe')) {
+              console.log('targetted');
+              viewModel.showPreviewFrame(false);
+            }
+          });
         }
       ];
     <% end %>
