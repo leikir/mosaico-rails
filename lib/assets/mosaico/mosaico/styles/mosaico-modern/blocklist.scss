@@ -244,6 +244,10 @@
   opacity: 0.4;
 }
 
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .mce-content-body.selecteditem:after {
+  border: none;
+}
+
 /* !BLOCK ACTIONS TOOLS */
 
 
@@ -376,4 +380,65 @@
 
 .uploadzone .fileuploadtext .textMiddle {
   font-size: 14px;
+}
+
+#main-edit-area .sortable-blocks-edit.empty {
+  animation: none;
+}
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .selectable-img.selecteditem .mo-imgselectionhelper {
+  border: none;
+  outline: none;
+  animation: none;
+}
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .selectable-img:hover .mo-imgselectionhelper {
+  outline: none;
+}
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .selectable-img .midtools .fa.fa-trash-o {
+  vertical-align: middle;
+  text-align: left;
+  margin-top: -15px;
+}
+
+#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .selectable-img .midtools .fa.fa-upload {
+  vertical-align: middle;
+  text-align: left;
+  margin-top: -8px;
+}
+
+.simplified .tools {
+  display: none;
+}
+
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) div[id^="ko_textBlock"] p,
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) span[id^="ko_titleBlock"] {
+  padding: 6px 12px;
+}
+
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) div[id^="ko_textBlock"]:after,
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) span[id^="ko_titleBlock"]:after {
+  visibility: visible;
+  z-index: 0;
+  border: 1px solid #ccc;
+  outline: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -o-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .mce-content-body {
+  cursor: text;
+}
+
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable:hover .mo-blockselectionhelper {
+  outline: none;
+  border: none;
+}
+
+.simplified #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .mce-content-body.selecteditem:after {
+  border: 1px solid #ccc;
+  animation: none;
 }

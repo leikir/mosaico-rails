@@ -11,8 +11,12 @@
   z-index: 3000;
 }
 
+// #main-preview #frame-container iframe {
+//   margin-top: 15px;
+// }
+
 #frame-container:before {
-  top: 6.5%;
+  top: 35px;
   position: fixed;
   content: "\f00d";
   font-family: FontAwesome;
@@ -32,7 +36,7 @@
   transform: none;
   display: block;
   margin: 0 auto;
-  padding-top: 5%;
+  padding-top: 55px;
   overflow: scroll;
 }
 
@@ -55,7 +59,7 @@
 #main-preview #preview-toolbar {
   position: fixed;
   z-index: 3001;
-  top: 5%;
+  top: 25px;
   text-align: left;
   margin-left: 35%;
   height: 40px;

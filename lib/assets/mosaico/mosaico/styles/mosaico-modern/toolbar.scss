@@ -44,9 +44,13 @@ body {
   font-size: 20px;
 }
 
+#toolbar #showGallery + label > span.fa {
+  margin-top: -3px;
+}
+
 #toolbar > label[for="previewFrameToggle"] > span.fa {
   position: relative;
-  top: 3px;
+  top: 0;
   font-size: 23px;
 }
 
@@ -55,10 +59,10 @@ body {
   background-color: transparent;
   color: #fff;
   cursor: pointer;
-  -webkit-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  transform: scale(1.1);
+  // -webkit-transform: scale(1.1);
+  // -o-transform: scale(1.1);
+  // -moz-transform: scale(1.1);
+  // transform: scale(1.1);
 }
 
 
