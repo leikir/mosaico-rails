@@ -211,37 +211,29 @@
   border: none;
 }
 
-#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected {
-  opacity: 1;
-  -webkit-transition: opacity 0.6s ease-in-out;
-  -moz-transition: opacity 0.6s ease-in-out;
-  -o-transition: opacity 0.6s ease-in-out;
-  transition: opacity 0.6s ease-in-out;
-}
+// make selected blocks appear and others disappear
+#main-edit-area {
+  #main-wysiwyg-area {
+    &:not(.isdragging):not(.isdraggingimg) {
+      .editable {
+        -webkit-transition: opacity 0.6s ease-in-out;
+        -moz-transition: opacity 0.6s ease-in-out;
+        -o-transition: opacity 0.6s ease-in-out;
+        transition: opacity 0.6s ease-in-out;
 
-// #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected:before {
-//   content: ' ';
-//   top: -2005px; // Because of mo-blockselectionhelper outline
-//   height: 2000px;
-//   position: absolute;
-//   width: 100%;
-//   background-color: rgba(255,255,255,0.6);
-//   left: 0
-// }
-//
-// #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable.selected:after {
-//   content: ' ';
-//   bottom: -2005px;
-//   height: 2000px;
-//   position: absolute;
-//   width: 100%;
-//   background-color: rgba(255,255,255,0.6);
-//   left: 0;
-// }
-
-
-#main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .editable:not(.selected) {
-  opacity: 0.4;
+        &.selected {
+          opacity: 1;
+        }
+      }
+      &.with-selection {
+        .editable {
+          &:not(.selected) {
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+  }
 }
 
 #main-edit-area #main-wysiwyg-area:not(.isdragging):not(.isdraggingimg) .mce-content-body.selecteditem:after {
