@@ -36,9 +36,7 @@
         },
         function(viewModel) {
           $(document).on('click', '#frame-container', function(event) {
-            console.log(event);
             if (!$(event.target).is('#frame-container > iframe')) {
-              console.log('targetted');
               viewModel.showPreviewFrame(false);
             }
           });
