@@ -40,6 +40,14 @@
               viewModel.showPreviewFrame(false);
             }
           });
+        },
+        function(viewModel) {
+          var oldSelectBlock = viewModel.selectBlock;
+          viewModel.selectBlock = function(valueAccessor, item, doNotSelect, doNotUnselectItem) {
+            oldSelectBlock(valueAccessor, item, doNotSelect, doNotUnselectItem);
+            var selectedCount = $('#main-edit-area #main-wysiwyg-area .editable.selected').length;
+            $('#main-edit-area #main-wysiwyg-area').toggleClass('with-selection', selectedCount > 0);
+          };
         }
       ];
     <% end %>
