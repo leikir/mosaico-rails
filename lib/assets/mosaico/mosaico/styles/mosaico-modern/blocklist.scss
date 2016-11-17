@@ -442,7 +442,8 @@
 
     div[id^="ko_textBlock"] p,
     span[id^="ko_titleBlock"] {
-      padding: 6px 12px;
+      padding-left: 12px;
+      padding-right: 12px;
     }
     div[id^="ko_textBlock"]:after,
     span[id^="ko_titleBlock"]:after {
