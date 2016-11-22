@@ -1,7 +1,8 @@
 class MosaicoRails::ImagesController < ApplicationController
 
   def show
-    # Error management not supported.
+    head :no_content and return unless (params[:params] && params[:method])
+
     width, height = params[:params].gsub('null', '0').split(',')
 
     if params[:method] == 'placeholder'
@@ -11,7 +12,7 @@ class MosaicoRails::ImagesController < ApplicationController
       send_data data.read, type: data.content_type, disposition: 'inline'
     elsif params[:method] == 'resize' || params[:method] == 'cover'
       method = params[:method] == 'resize' ? '>' : '#'
-      image = MosaicoRails::Image.find_by(image_url: params[:src])
+      head :no_content and return unless (image = MosaicoRails::Image.find_by(image_url: params[:src]))
       data = image.dynamic_attachment_url(width, height, method)
       redirect_to data
     end
