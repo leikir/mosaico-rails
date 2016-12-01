@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "paperclip"
+  s.add_dependency "paperclip", '4.3.7'
   s.add_dependency 'aws-sdk', '< 2.0'
-  s.add_dependency "tinymce-rails"
+  s.add_dependency "tinymce-rails", '4.4.2'
 
 end
