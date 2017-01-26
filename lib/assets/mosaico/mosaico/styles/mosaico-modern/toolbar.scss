@@ -197,3 +197,7 @@ body {
 #main-edit-area:after {
   box-shadow: none;
 }
+
+div[id^="ui-id-"].ui-tooltip.ui-widget {
+  display: none !important;
+}
