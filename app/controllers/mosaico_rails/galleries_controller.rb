@@ -1,4 +1,5 @@
-class MosaicoRails::GalleriesController <  MosaicoRails::MosaicoRailsController
+class MosaicoRails::GalleriesController < MosaicoRails.gallery_parent_controller.constantize
+  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
   before_action :set_default_gallery
 
   def update

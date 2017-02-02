@@ -4,17 +4,17 @@ module MosaicoRails
     require "rails/generators/active_record"
 
     argument :owner_class, :type => :string, optional: true
-    argument :parent_controller, :type => :string, optional: true
+    argument :gallery_parent_controller, :type => :string, optional: true
 
     source_root File.expand_path('../templates', __FILE__)
 
     def create_initializer_file
       # Paperclip
       copy_file("paperclip.rb", "config/initializers/paperclip.rb")
-      
+
       # MosaicoRails config parameters
       auto_init_line = "# Init Mosaico once, default value is true\n# MosaicoRails.auto_init = true\n"
-      parent_controller_line = parent_controller.present? ? "MosaicoRails.parent_controller = '#{parent_controller}'\n" : ''
+      gallery_parent_controller_line = gallery_parent_controller.present? ? "MosaicoRails.gallery_parent_controller = '#{gallery_parent_controller}'\n" : ''
 
       if owner_class.present? && owner_class != 'nil'
         owner_class_line = "MosaicoRails.owner_class = '#{owner_class.classify}'\n"
@@ -24,7 +24,7 @@ module MosaicoRails
         current_gallery_method = ''
       end
       create_file("config/initializers/mosaico-rails.rb",
-        owner_class_line + auto_init_line + current_gallery_method + parent_controller_line
+        owner_class_line + auto_init_line + current_gallery_method + gallery_parent_controller_line
       )
     end
 
@@ -54,7 +54,7 @@ module MosaicoRails
       inject_into_file fname, "\n  mount MosaicoRails::Engine, at: '/'\n", after: "Rails.application.routes.draw do\n"
     end
 
-    private 
+    private
       def self.next_migration_number(number)
         ActiveRecord::Generators::Base.next_migration_number(number)
       end
