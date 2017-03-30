@@ -460,3 +460,9 @@
     }
   }
 }
+
+div[aria-describedby="incompatible-template"] {
+  &, & ~ * {
+    display: none !important;
+  }
+}

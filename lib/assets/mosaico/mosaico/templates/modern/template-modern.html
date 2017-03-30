@@ -124,7 +124,7 @@
         label: Social Block;
         properties: socialIconType=colors fbVisible=true fbUrl twVisible=true twUrl ggVisible=true ggUrl webVisible=false webUrl inVisible=false inUrl flVisible=false flUrl viVisible=false viUrl instVisible=false instUrl youVisible=false youUrl longTextStyle longText backgroundColor;
         variant:socialIconType;
-        theme: frameTheme
+        theme: contentTheme
       }
 
       sideArticleBlock imagePos {label:Image position;widget:select; options: left=Left|right=Right; }
@@ -337,7 +337,7 @@
     [data-ko-block=socialBlock] .links-color a:link,
     [data-ko-block=socialBlock] .links-color a:visited,
     [data-ko-block=socialBlock] .links-color a:hover {
-      color: #cccccc;
+      color: #3f3f3f;
       -ko-color: @longTextStyle.linksColor;
       text-decoration: underline;
     }
@@ -1282,15 +1282,15 @@
   <!-- /spacerBlock -->
 
   <!-- socialBlock -->
-  <table width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff"
-    style="background-color: #ffffff; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"  data-ko-block="socialBlock">
+  <table width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
+    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor"  data-ko-block="socialBlock">
     <tr>
-      <td align="center" valign="top" bgcolor="#ffffff" style="background-color: #ffffff;
+      <td align="center" valign="top" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
         -ko-attr-bgcolor: @externalBackgroundColor; -ko-background-color: @externalBackgroundColor;">
 <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
         <table width="570" style="width: 100%; max-width: 570px" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" align="center"
-        style="background-color: #3f3f3f; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor">
+        style="background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor">
           <tr>
             <td valign="top"  align="center" style="font-size: 0;">
 
@@ -1301,7 +1301,7 @@
                     <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%" align="left">
                       <tr>
                         <td valign="middle" align="left"
-                          style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #919191; text-align:left;
+                          style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align:left;
                           -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
                           data-ko-editable="longText" class="long-text links-color mobile-textcenter">
                           <p>Address and <a href="">Contacts</a></p>
