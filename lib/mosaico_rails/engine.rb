@@ -1,6 +1,7 @@
 module MosaicoRails
   class Engine < ::Rails::Engine
     isolate_namespace MosaicoRails
+
     initializer "mosaico-rails.assets.precompile" do |app|
       app.config.tinymce.install = :compile
       app.config.assets.paths << MosaicoRails::Engine.root.join("lib", "assets", "mosaico")
@@ -14,5 +15,15 @@ module MosaicoRails
         mosaico/**/*.gif
       )
     end
+
+    DEFAULT_JSON_METADATA = {
+      created: 1_472_726_174_764,
+      key: 'xy6paxp',
+      name: 'modern',
+      template: 'templates/modern',
+      editorversion: '0.14.0',
+      templateversion: '1.0.5',
+      changed: 1_472_726_187_318
+    }.freeze
   end
 end
