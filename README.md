@@ -28,6 +28,16 @@ Then,
   rake db:migrate
 ```
 
+# Update mosaico
+
+```bash
+  cd vendor/assets/mosaico/mosaico
+  git pull origin master
+  npm install
+  npm install -g grunt-cli
+  grunt dist
+```
+
 # Storage
 As [Paperclip](https://github.com/thoughtbot/paperclip), you can store your file into your file system or to S3. Actually `mosaico-rails` doesn't provide `Fog` storage adapter.
 

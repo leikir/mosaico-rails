@@ -1,5 +1,4 @@
 require "mosaico_rails/engine"
-require "tinymce-rails"
 
 module MosaicoRails
   mattr_accessor :owner_class

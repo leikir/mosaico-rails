@@ -3,12 +3,12 @@ class MosaicoRails::TranslationsController < ApplicationController
   def show
     locale = params[:locale] || 'en'
 
-    translate_file = MosaicoRails::Engine.root.join("vendor/assets/mosaico/mosaico/dist/lang/mosaico-#{locale}.json")
+    translate_file = MosaicoRails::Engine.root.join("vendor/assets/mosaico/mosaico/dist/rs/lang/mosaico-#{locale}.json")
 
     translations = if File.exists?(translate_file)
       JSON.parse(File.read(translate_file))
     else
-      JSON.parse(File.read(MosaicoRails::Engine.root.join("vendor/assets/mosaico/mosaico/dist/lang/mosaico-en.json")))
+      JSON.parse(File.read(MosaicoRails::Engine.root.join("vendor/assets/mosaico/mosaico/dist/rs/lang/mosaico-en.json")))
     end
 
     template_translations_file = MosaicoRails::Engine.root.join("lib/assets/mosaico/mosaico/templates/modern/modern-#{locale}.json")
